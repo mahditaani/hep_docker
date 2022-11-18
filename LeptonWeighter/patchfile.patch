@@ -1,0 +1,9 @@
+@@ -110,7 +110,7 @@
+ 	TMP=`echo "$PYTHON_STDLIBDIR" | sed -n s'|\(.*/lib\)/python'"${PYTHON_VERSION}"'|\1|p'`
+ 	if [ "$TMP" ]; then POSSIBLE_PYTHON_LIBDIRS="${POSSIBLE_PYTHON_LIBDIRS} ${TMP}"; fi
+ 	# Ubuntu is special, of course
+-	if uname -a | grep -i 'ubuntu' > /dev/null; then
++	if uname -a | grep -i 'Linux' > /dev/null; then
+ 		POSSIBLE_PYTHON_LIBDIRS="${POSSIBLE_PYTHON_LIBDIRS} /usr/lib/$(uname -i)-linux-gnu"
+ 	fi
+ 

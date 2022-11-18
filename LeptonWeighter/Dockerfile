@@ -28,6 +28,7 @@ ENV PHOTOSPLINEDIR=${MAINDIR}/photospline
 ENV PHOTOSPLINEVERSION=v2.1.0
 
 ENV LEPTONWEIGHTERDIR=${MAINDIR}/LeptonWeighter
+ENV LEPTONWEIGHTERVERSION=d0c1c99041abb18e9e255f0c448860cb59391216
 
 ENV LEPTONINJECTORDIR=${MAINDIR}/LeptonInjector
 
@@ -55,8 +56,11 @@ RUN cmake . -DCMAKE_INSTALL_PREFIX=/usr/local && make install
 
 # Install LeptonWeighter
 WORKDIR ${MAINDIR}
-COPY source ${LEPTONWEIGHTERDIR}
+RUN git clone https://github.com/icecube/LeptonWeighter.git
 WORKDIR ${LEPTONWEIGHTERDIR}
+RUN git checkout ${LEPTONWEIGHTERVERSION}
+COPY patchfile.patch ${LEPTONWEIGHTERDIR}
+RUN patch configure patchfile.patch
 RUN ./configure && make && make install && make python-install
 RUN pip3 install tables
 
