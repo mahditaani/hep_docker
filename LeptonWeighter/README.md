@@ -2,3 +2,8 @@ LeptonWeighter was pulled from https://github.com/icecube/LeptonWeighter with a 
 
 To build the container just run (from the directory containing the dockerfile):
 `docker build -t hep_lepton_weighter`
+
+When running the docker container terminal use command:
+```console
+bash
+```

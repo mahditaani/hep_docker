@@ -4,4 +4,4 @@ Currently provided software:
     1. LeptonWeighter
 
 To install, just enter the directory with your desired software and type:
-`docker build -t name_of_program`
+`docker build -t name_of_program .`
